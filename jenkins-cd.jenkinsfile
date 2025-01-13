@@ -13,8 +13,8 @@ pipeline {
             steps {
                 echo 'Initialize'
                 sh "cat /etc/os-release"
-                sh "sudo apt install python3"
-                sh "sudo apt install python3-pip"
+                sh "su apt install python3"
+                sh "su apt install python3-pip"
             }
         }
         stage('Run schemachange') {
