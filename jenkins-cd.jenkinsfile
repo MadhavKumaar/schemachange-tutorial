@@ -12,7 +12,7 @@ pipeline {
         stage('Initialize') {
             steps {
                 echo 'Initialize'
-                sh "cat /etc/os-release"
+                sh "su -"
                 sh "apt install -y sudo"
                 sh "sudo apt install python3"
                 sh "sudo apt install python3-pip"
