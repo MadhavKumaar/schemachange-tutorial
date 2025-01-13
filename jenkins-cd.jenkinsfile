@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Install Python and pip') {
             steps {
-                sh "brew --version"
+                sh "sw_vers"
                 sh 'brew update && brew install python && python3 -m ensurepip'
             }
         }
