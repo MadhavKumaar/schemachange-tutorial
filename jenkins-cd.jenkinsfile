@@ -11,8 +11,9 @@ pipeline {
     stages {
         stage('check') {
             steps {
-                sh "python --version"
-                sh "pip --version"
+                sh '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+                sh "brew install python3"
+                sh "pip3 --version"
             }
         }
         stage('Run schemachange') {
