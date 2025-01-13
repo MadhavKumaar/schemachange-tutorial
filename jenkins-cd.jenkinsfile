@@ -9,14 +9,11 @@ pipeline {
         SF_DATABASE = "DEMO_DB"
     }
     stages {
-        stage('Install Python and pip') {
+        stage('check') {
             steps {
-                sh '''
-                            curl -o python-installer.pkg https://www.python.org/ftp/python/3.9.7/python-3.9.7-macosx10.9.pkg
-                            sudo installer -pkg python-installer.pkg -target /
-                            python3 -m ensurepip
-                        '''
-                }
+                sh "python --version"
+                sh "pip --version"
+            }
         }
         stage('Run schemachange') {
             steps {
