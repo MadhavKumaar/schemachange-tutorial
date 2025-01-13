@@ -1,10 +1,5 @@
 pipeline {
-    agent { 
-        docker { 
-            image "python:3.8"
-            args '--user 0:0'
-        } 
-    }
+    agent any
     environment{
         SF_ACCOUNT = "https://yf64316.ap-southeast-1.snowflakecomputing.com" //GZYEHYS.EE95949
         SF_USERNAME = "raventrail1"
@@ -14,6 +9,12 @@ pipeline {
         SF_DATABASE = "DEMO_DB"
     }
     stages {
+        stage('Initialize') {
+            steps {
+                echo 'Initialize'
+                sh "cat /etc/os-release"
+            }
+        }
         stage('Run schemachange') {
             steps {
                 sh "pip install schemachange --upgrade"
