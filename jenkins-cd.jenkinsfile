@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent { 
+        docker { 
+            image "python:3.8"
+            args '--user 0:0'
+        } 
+    }
     environment{
         SF_ACCOUNT = "https://yf64316.ap-southeast-1.snowflakecomputing.com" //GZYEHYS.EE95949
         SF_USERNAME = "raventrail1"
@@ -9,13 +14,6 @@ pipeline {
         SF_DATABASE = "DEMO_DB"
     }
     stages {
-        stage('check') {
-            steps {
-                sh '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
-                sh "brew install python3"
-                sh "pip3 --version"
-            }
-        }
         stage('Run schemachange') {
             steps {
                 sh "pip install schemachange --upgrade"
