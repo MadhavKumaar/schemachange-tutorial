@@ -1,5 +1,7 @@
 pipeline {
-    agent { docker { image 'python:3.13.1-alpine3.21' } }
+    agent { docker {
+         image "python:3.8"
+         args '--user 0:0' } }
     environment{
         SF_ACCOUNT = "https://yf64316.ap-southeast-1.snowflakecomputing.com" //GZYEHYS.EE95949
         SF_USERNAME = "raventrail1"
