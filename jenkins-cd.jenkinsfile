@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'Initialize'
                 sh "cat /etc/os-release"
-                sh "apt update && apt install sudo"
+                sh "apt install sudo"
                 sh "sudo apt install python3"
                 sh "sudo apt install python3-pip"
             }
