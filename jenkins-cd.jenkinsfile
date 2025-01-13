@@ -1,7 +1,5 @@
 pipeline {
-    agent { docker {
-         image "python:3.8"
-         args '--user 0:0' } }
+    agent any
     environment{
         SF_ACCOUNT = "https://yf64316.ap-southeast-1.snowflakecomputing.com" //GZYEHYS.EE95949
         SF_USERNAME = "raventrail1"
@@ -13,7 +11,7 @@ pipeline {
     stages {
         stage('Install Python and pip') {
             steps {
-                sh 'apk update && apk install -y python3 python3-pip'
+                sh 'brew update && brew install python && python3 -m ensurepip'
             }
         }
         stage('Run schemachange') {
