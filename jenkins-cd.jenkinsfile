@@ -3,7 +3,7 @@ pipeline {
     environment{
         SF_ACCOUNT = "https://yf64316.ap-southeast-1.snowflakecomputing.com" //GZYEHYS.EE95949
         SF_USERNAME = "raventrail1"
-        SNOWFLAKE_PASSWORD = credentials('snowflakeCredntials')
+        SNOWFLAKE_PASSWORD = "Raventrail@1"//credentials('snowflakeCredntials')
         SF_ROLE = "ACCOUNTADMIN"
         SF_WAREHOUSE = "COMPUTE_WH"
         SF_DATABASE = "DEMO_DB"
